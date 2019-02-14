@@ -1,0 +1,16 @@
+.calendar {
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.calendar .calendar-date__head, .calendar-date__body {
+    display: flex;
+    flex-wrap: wrap;
+}
+.calendar .calendar-date__head span, .calendar-date__body span {
+    width: 100px;
+    text-align: center;
+    padding: 7px;
+    box-sizing: border-box;
+}

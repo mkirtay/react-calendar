@@ -7,8 +7,8 @@ export default class Calendar extends Component {
     render(){
         return(
             <div className="calendar">
-                <CalendarTitle/>
-                <CalendarDate days={this.props.days}/>
+                <CalendarTitle months={ this.props.months }/>
+                <CalendarDate daysInMonth={ this.props.daysInMonth } days={ this.props.days }/>
             </div>
         )
     }
