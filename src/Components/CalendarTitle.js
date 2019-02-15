@@ -5,7 +5,7 @@ export default class CalendarTitle extends Component{
     monthText(month, year){
         return(
             <div>
-                <span> { this.props.months.id[month] } </span>
+
                 <span> {year} </span>
             </div>
         )
