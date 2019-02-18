@@ -30,54 +30,80 @@ class App extends Component {
         ],
         months: [
             {
-                id: '1',
                 month: 'January'
             },
             {
-                id: '2',
                 month: 'February'
             },
             {
-                id: '3',
                 month: 'March'
             },
             {
-                id: '4',
                 month: 'April'
             },
             {
-                id: '5',
                 month: 'May'
             },
             {
-                id: '6',
                 month: 'June'
             },
             {
-                id: '7',
                 month: 'July'
             },
             {
-                id: '8',
                 month: 'August'
             },
             {
-                id: '9',
                 month: 'September'
             },
             {
-                id: '10',
                 month: 'October'
             },
             {
-                id: '11',
                 month: 'November'
             },
             {
-                id: '12',
                 month: 'December'
             },
-        ]
+        ],
+        years: [
+            {
+                year: '2019'
+            },
+            {
+                year: '2018'
+            },
+            {
+                year: '2017'
+            },
+            {
+                year: '2016'
+            },
+            {
+                year: '2015'
+            },
+            {
+                year: '2014'
+            },
+            {
+                year: '2013'
+            },
+            {
+                year: '2012'
+            },
+            {
+                year: '2011'
+            },
+            {
+                year: '2010'
+            },
+            {
+                year: '2009'
+            },
+            {
+                year: '2008'
+            },
+        ],
     };
 
     daysInMonth(month, year){
@@ -87,7 +113,7 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <Calendar daysInMonth={ this.daysInMonth } days={ this.state.days } months={ this.state.months }/>
+                <Calendar daysInMonth={ this.daysInMonth } days={ this.state.days } months={ this.state.months } years={this.state.years}/>
             </div>
         );
     }
