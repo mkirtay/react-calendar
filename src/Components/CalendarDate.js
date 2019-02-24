@@ -29,8 +29,8 @@ export default class CalendarDate extends Component{
             {month: currentMonth, year: currentYear}
         )*/
 
+        console.log(this.props.years)
         this.showCalendar(this.state.month, this.state.year);
-        console.log(this.state.month);
     }
 
     onClickPrev(){
@@ -41,8 +41,28 @@ export default class CalendarDate extends Component{
         ( month === 0 ) ? this.setState({ month: 11 }): this.setState({ month: month-1 });
 
         this.showCalendar(this.state.month, this.state.year);
-
     }
+
+    onChangeMonth(e){
+        const selectValueMonth = e.target.value;
+
+        this.setState({
+           month: selectValueMonth
+        });
+
+        this.showCalendar(selectValueMonth, this.state.year);
+    }
+
+    onChangeYear(e){
+        const selectValueYear = e.target.value;
+
+        this.setState({
+            year: selectValueYear
+        });
+
+        this.showCalendar(this.state.month, selectValueYear);
+    }
+
     onClickNext(){
         let month = this.state.month;
         let year = this.state.year;
@@ -62,7 +82,7 @@ export default class CalendarDate extends Component{
 
         const monthName = this.props.months.map( (months, i) => {
             return(
-                <option key={i} value={i}>{months.month}</option>
+                <option key={i} name={months.month} value={i}>{months.month}</option>
             )
         });
 
@@ -74,7 +94,7 @@ export default class CalendarDate extends Component{
 
         return (
             <div>
-                <h3 className="calendar__title "> { this.state.month }  { this.state.year }  </h3>
+                <h3 className="calendar__title "> { this.props.months[this.state.month].month }  { this.state.year }  </h3>
                 <div className="calendar-date">
                     <div className="calendar-date__head">
                         {dayName}
@@ -92,10 +112,10 @@ export default class CalendarDate extends Component{
                     <button onClick={this.onClickNext.bind(this)}>NEXT</button>
                 </div>
                 <div>
-                    <select onChange={this.onChangeMonth} className="select-month">
+                    <select onChange={this.onChangeMonth.bind(this)} className="select-month">
                         {monthName}
                     </select>
-                    <select onChange={this.onChangeYear} className="select-year">
+                    <select onChange={this.onChangeYear.bind(this)} className="select-year">
                         {year}
                     </select>
                 </div>
