@@ -1,28 +1,22 @@
 .calendar {
-    max-width: 700px;
-    width: 100%;
-    margin: 0 auto;
-}
-
-.calendar .calendar-date__head, .calendar-date__body {
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto; }
+  .calendar-date__head, .calendar-date__body {
     display: flex;
-    flex-wrap: wrap;
-}
-.calendar .calendar-date__head span, .calendar-date__body span {
-    width: 100px;
-    text-align: center;
-    padding: 7px;
-    box-sizing: border-box;
-}
-
-.calendar .buttons {
+    flex-wrap: wrap; }
+    .calendar-date__head span, .calendar-date__body span {
+      width: 100px;
+      text-align: center;
+      padding: 7px;
+      box-sizing: border-box; }
+  .calendar .buttons {
     display: flex;
-    justify-content: space-between;
-}
+    justify-content: space-between; }
+    .calendar .buttons button {
+      padding: 10px 20px;
+      background: #f5f5f5;
+      color: #000;
+      text-decoration: none; }
 
-.calendar .buttons button {
-    padding: 10px 20px;
-    background: #f5f5f5;
-    color: #000;
-    text-decoration: none;
-}
+/*# sourceMappingURL=CalendarDate.css.map */

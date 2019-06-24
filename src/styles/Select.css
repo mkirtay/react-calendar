@@ -1,0 +1,9 @@
+.select-container {
+  display: flex;
+  margin-top: 30px; }
+  .select-container > div {
+    width: 150px; }
+    .select-container > div:first-child {
+      margin-right: 30px; }
+
+/*# sourceMappingURL=Select.css.map */

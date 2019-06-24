@@ -1,0 +1,11 @@
+.select-container {
+	display: flex;
+	margin-top: 30px;
+	> div {
+		width: 150px;
+
+		&:first-child {
+			margin-right: 30px;
+		}
+	}
+}

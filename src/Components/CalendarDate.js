@@ -1,8 +1,16 @@
 import React, {Component} from 'react';
+import Select from 'react-select';
+import '../styles/Select.css';
+import 'react-select/dist/react-select.css';
 
 export default class CalendarDate extends Component {
 
-    state = {totalDays: [], month: new Date().getMonth(), year: new Date().getFullYear()};
+    state = {
+        totalDays: [],
+        selectMonths: [],
+        selectYears: [],
+        month: new Date().getMonth(),
+        year: new Date().getFullYear()};
 
     showCalendar(month, year) {
         const firstDay = new Date(year, month).getDay();
@@ -21,20 +29,27 @@ export default class CalendarDate extends Component {
     }
 
     componentDidMount() {
-        /*const today = new Date();
-        const currentMonth = today.getMonth();
-        const currentYear = today.getFullYear();
-
-        this.setState(
-            {month: currentMonth, year: currentYear}
-        )*/
-
-        console.log(this.props.years)
         this.showCalendar(this.state.month, this.state.year);
+        let months2 = [ ];
+        let year2 = [ ];
+
+        this.props.months.map( (months, i) => {
+            months2.push({label: months.month, value:i})
+        });
+
+        this.props.years.map( (years) => {
+            year2.push({label: years.year, value:years.year})
+        });
+
+        this.setState({
+                selectMonths: months2,
+                selectYears: year2
+            }
+        )
     }
 
-    onChangeMonth(e) {
-        const selectValueMonth = e.target.value;
+    onChangeMonth(selectedOption) {
+        const selectValueMonth = selectedOption.value;
 
         this.setState({
             month: selectValueMonth
@@ -43,8 +58,8 @@ export default class CalendarDate extends Component {
         this.showCalendar(selectValueMonth, this.state.year);
     }
 
-    onChangeYear(e) {
-        const selectValueYear = e.target.value;
+    onChangeYear(selectedOption) {
+        const selectValueYear = selectedOption.value;
 
         this.setState({
             year: selectValueYear
@@ -84,18 +99,6 @@ export default class CalendarDate extends Component {
             )
         });
 
-        const monthName = this.props.months.map((months, i) => {
-            return (
-                <option key={i} name={months.month} value={i}>{months.month}</option>
-            )
-        });
-
-        const year = this.props.years.map((years, i) => {
-            return (
-                <option key={i} value={years.year}> {years.year} </option>
-            )
-        });
-
         return (
             <div>
                 <h3 className="calendar__title "> {this.props.months[this.state.month].month} {this.state.year}  </h3>
@@ -115,13 +118,15 @@ export default class CalendarDate extends Component {
                     <button onClick={this.onClickPrev.bind(this)}>PREV</button>
                     <button onClick={this.onClickNext.bind(this)}>NEXT</button>
                 </div>
-                <div>
-                    <select onChange={this.onChangeMonth.bind(this)} className="select-month">
-                        {monthName}
-                    </select>
-                    <select onChange={this.onChangeYear.bind(this)} className="select-year">
-                        {year}
-                    </select>
+                <div className="select-container">
+                    <div>
+                        <span>Month</span>
+                        <Select onChange={this.onChangeMonth.bind(this)} placeholder={this.props.months[this.state.month].month} className="select-month" options={this.state.selectMonths}/>
+                    </div>
+                    <div>
+                        <span>Year</span>
+                        <Select onChange={this.onChangeYear.bind(this)} placeholder={this.state.year} className="select-month" options={this.state.selectYears}/>
+                    </div>
                 </div>
             </div>
         )
