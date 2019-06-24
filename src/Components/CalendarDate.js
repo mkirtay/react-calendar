@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Select from 'react-select';
 import '../styles/Select.css';
+import '../styles/Button.css';
 import 'react-select/dist/react-select.css';
 
 export default class CalendarDate extends Component {
@@ -115,8 +116,8 @@ export default class CalendarDate extends Component {
                     </div>
                 </div>
                 <div className="buttons">
-                    <button onClick={this.onClickPrev.bind(this)}>PREV</button>
-                    <button onClick={this.onClickNext.bind(this)}>NEXT</button>
+                    <button className="button" onClick={this.onClickPrev.bind(this)}>PREV</button>
+                    <button className="button" onClick={this.onClickNext.bind(this)}>NEXT</button>
                 </div>
                 <div className="select-container">
                     <div>
